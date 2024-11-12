@@ -1,6 +1,7 @@
 package farrel.ad.taskmanager;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -106,11 +106,12 @@ public class HelloApplication extends Application {
 
         // Main layout
         VBox layout = new VBox(20, greetingLabel, askPinLabel, pinBox, validationLabel, submitButton);
+        VBox.setMargin(greetingLabel, new Insets(30, 0, 50, 0));
         layout.setAlignment(Pos.CENTER);
         layout.setStyle("-fx-background-color: #f0f4f8; -fx-padding: 40px;");
         layout.setSpacing(15);
 
-        Scene scene = new Scene(new StackPane(layout), 400, 300);
+        Scene scene = new Scene(layout, 400, 300);
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
