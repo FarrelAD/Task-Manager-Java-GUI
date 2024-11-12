@@ -18,11 +18,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class HelloApplication extends Application {
+public class Main extends Application {
     private static final String CORRECT_PIN = "123123";
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) {
         primaryStage.setTitle("Task Manager");
 
         // Main label
