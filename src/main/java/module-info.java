@@ -6,4 +6,6 @@ module farrel.ad.taskmanager {
 
     opens farrel.ad.taskmanager to javafx.fxml;
     exports farrel.ad.taskmanager;
+    exports farrel.ad.taskmanager.controllers;
+    opens farrel.ad.taskmanager.controllers to javafx.fxml;
 }
