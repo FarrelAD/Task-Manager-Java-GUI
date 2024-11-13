@@ -53,7 +53,7 @@ public class SidebarController {
     private void showDashboard() {
         Parent root;
         try {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/dashboard.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/Dashboard.fxml")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

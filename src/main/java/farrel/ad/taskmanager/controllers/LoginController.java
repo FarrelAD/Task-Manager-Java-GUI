@@ -77,7 +77,7 @@ public class LoginController {
             // Close the current stage window
             this.loginStage.close();
 
-            FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/views/dashboard.fxml"));
+            FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/views/Dashboard.fxml"));
             FXMLLoader sidebarLoader = new FXMLLoader(getClass().getResource("/components/sidebar.fxml"));
             Parent dashboardRoot;
             try {
