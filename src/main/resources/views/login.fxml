@@ -8,7 +8,7 @@
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farrel.ad.taskmanager.controllers.LoginController">
     <Label alignment="CENTER" contentDisplay="CENTER" text="Welcome back!">
         <font>
-            <Font name="Arial" size="26" />
+            <Font name="Arial Bold" size="26.0" />
         </font>
       <VBox.margin>
          <Insets bottom="30.0" top="30.0" />
@@ -16,7 +16,7 @@
     </Label>
     <Label alignment="CENTER" contentDisplay="CENTER" text="Enter 6-Digit PIN" textAlignment="CENTER">
         <font>
-            <Font name="Arial" size="24" />
+            <Font name="Arial" size="18.0" />
         </font>
       <VBox.margin>
          <Insets bottom="20.0" top="20.0" />
@@ -34,10 +34,13 @@
       </VBox.margin>
     </HBox>
     <Label fx:id="validationLabel" textFill="RED" />
-    <Button fx:id="submitButton" style="-fx-background-color: #4CAF50;" text="Verify" textFill="WHITE">
+    <Button fx:id="submitButton" style="-fx-background-color: #0D0D55;" text="Verify" textFill="#d9f103">
       <VBox.margin>
          <Insets bottom="20.0" top="20.0" />
-      </VBox.margin></Button>
+      </VBox.margin>
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font></Button>
    <padding>
       <Insets left="20.0" right="20.0" />
    </padding>
