@@ -1,5 +1,7 @@
 # Creating a Java GUI Desktop App with JavaFX
 
+> Currently, this project is only for displaying projects and tasks based on the stored data. Users still cannot create, update, or delete tasks.
+
 ## Login Window
 ![Login window](docs/img/login-window.png)
 
