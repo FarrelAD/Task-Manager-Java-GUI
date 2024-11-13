@@ -10,7 +10,7 @@
       spacing="50"
       style="-fx-background-color: #ECF0F1;">
 
-    <fx:include source="../components/sidebar.fxml"/>
+    <fx:include source="../components/Sidebar.fxml"/>
 
     <GridPane fx:id="projectsGrid" alignment="CENTER" hgap="50" vgap="20">
         <columnConstraints>
