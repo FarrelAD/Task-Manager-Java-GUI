@@ -3,6 +3,7 @@ package farrel.ad.taskmanager.storage;
 import farrel.ad.taskmanager.models.Project;
 import farrel.ad.taskmanager.models.Task;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,6 +66,10 @@ public class AppData {
 
     public static Map<String, Project> getProjectsData() {
         return projectsData;
+    }
+
+    public static ArrayList<Task> getTasksData(String projectName) {
+        return projectsData.get(projectName).getTasks();
     }
 
     public static void createNewProject() {

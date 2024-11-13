@@ -55,7 +55,7 @@ public class DashboardController {
             """);
 
             layout.getChildren().add(label);
-            layout.setOnMouseClicked(e -> showTasks());
+            layout.setOnMouseClicked(e -> showTasks(entry.getKey()));
 
             projectsGrid.add(layout, col, row);
 
@@ -67,7 +67,8 @@ public class DashboardController {
         }
     }
 
-    public void showTasks() {
+    public void showTasks(String projectName) {
+        KanbanTaskController.setData(projectName);
         Parent root;
         try {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/KanbanTask.fxml")));
