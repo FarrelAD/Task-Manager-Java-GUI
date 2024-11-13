@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="134.0" prefWidth="141.0" spacing="10" style="-fx-background-color: #0D0D55;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farrel.ad.taskmanager.controllers.SidebarController">
+   <Label fx:id="appTitle" text="TaskUP" textFill="#d9f103">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+      <VBox.margin>
+         <Insets bottom="30.0" left="20.0" right="20.0" top="30.0" />
+      </VBox.margin>
+   </Label>
+    <Button fx:id="dashboardButton" contentDisplay="CENTER" style="-fx-background-color: #0d0d55;" text="Dashboard" textFill="#d9f103">
+        <font>
+        <Font name="System Bold" size="18.0" />
+        </font>
+    </Button>
+    <Button fx:id="calendarButton" contentDisplay="CENTER" style="-fx-background-color: #0d0d55;" text="Calendar" textFill="#d9f103">
+      <font>
+         <Font size="18.0" />
+      </font></Button>
+    <Button fx:id="settingsButton" style="-fx-background-color: #0d0d55;" text="Settings" textFill="#d9f103">
+      <font>
+         <Font size="18.0" />
+      </font></Button>
+    <Button fx:id="accountButton" style="-fx-background-color: #0D0D55;" text="Account" textFill="#d9f103">
+      <font>
+         <Font size="18.0" />
+      </font></Button>
+</VBox>
