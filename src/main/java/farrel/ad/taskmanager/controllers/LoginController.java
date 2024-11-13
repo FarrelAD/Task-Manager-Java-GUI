@@ -1,17 +1,29 @@
 package farrel.ad.taskmanager.controllers;
 
+import farrel.ad.taskmanager.helper.SceneHelper;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.Map;
+import java.util.Objects;
 
 public class LoginController {
     private static final String CORRECT_PIN = "123123";
+    private Stage loginStage;
+    private Stage mainStage;
 
     @FXML
-    private PasswordField pinField0, pinField1, pinField2, pinField3, pinField4, pinField5;
+    private PasswordField pinField1, pinField2, pinField3, pinField4, pinField5, pinField6;
     @FXML
     private Label validationLabel;
     @FXML
@@ -19,21 +31,30 @@ public class LoginController {
 
     @FXML
     private void initialize() {
-        // Add focus handling and character limit for each pin field
-        PasswordField[] pinFields = {pinField0, pinField1, pinField2, pinField3, pinField4, pinField5};
+        PasswordField[] pinFields = {pinField1, pinField2, pinField3, pinField4, pinField5, pinField6};
         for (int i = 0; i < pinFields.length; i++) {
             final int index = i;
             pinFields[i].setOnKeyTyped(event -> handlePinFieldFocus(event, pinFields, index));
         }
 
-        // Submit button hover effects
         submitButton.setOnMouseEntered(e -> submitButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-background-radius: 5;"));
         submitButton.setOnMouseExited(e -> submitButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;"));
         submitButton.setOnMousePressed(e -> submitButton.setStyle("-fx-background-color: #388E3C; -fx-text-fill: white; -fx-background-radius: 5;"));
         submitButton.setOnMouseReleased(e -> submitButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;"));
 
-        // Set button action
         submitButton.setOnAction(event -> verifyPin(pinFields));
+    }
+
+    public void setLoginStage(Stage stage) {
+        this.loginStage = stage;
+    }
+
+    private void setMainStage(Stage stage) {
+        this.mainStage = stage;
+    }
+
+    public Stage getMainStage() {
+        return this.mainStage;
     }
 
     private void handlePinFieldFocus(KeyEvent event, PasswordField[] pinFields, int index) {
@@ -43,7 +64,7 @@ public class LoginController {
         }
     }
 
-    private void verifyPin(PasswordField[] pinFields) {
+    public void verifyPin(PasswordField[] pinFields) {
         StringBuilder pinInput = new StringBuilder();
         for (PasswordField pf : pinFields) {
             pinInput.append(pf.getText());
@@ -52,7 +73,29 @@ public class LoginController {
         if (pinInput.toString().equals(CORRECT_PIN)) {
             validationLabel.setText("Access granted!");
             validationLabel.setTextFill(Color.GREEN);
-            // Add code here to close the stage or proceed further
+
+            // Close the current stage window
+            this.loginStage.close();
+
+            FXMLLoader dashboardLoader = new FXMLLoader(getClass().getResource("/views/dashboard.fxml"));
+            FXMLLoader sidebarLoader = new FXMLLoader(getClass().getResource("/components/sidebar.fxml"));
+            Parent dashboardRoot;
+            try {
+                dashboardRoot = dashboardLoader.load();
+                sidebarLoader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            this.setMainStage(new Stage());
+            SidebarController.setMainStage(this.getMainStage());
+
+            Map<String, Double> sceneDimension = SceneHelper.getSceneDimension(0.8);
+            Scene scene = new Scene(dashboardRoot, sceneDimension.get("width"), sceneDimension.get("height"));
+
+            mainStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/img/task-icon.png"))));
+            mainStage.setScene(scene);
+            mainStage.show();
         } else {
             validationLabel.setText("Incorrect PIN. Please try again.");
             validationLabel.setTextFill(Color.RED);
