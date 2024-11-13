@@ -45,13 +45,16 @@ public class DashboardController {
 
             layout.setStyle("""
                 -fx-background-color: #FFFFFF;
-                -fx-border-color: #DDDDDD;
-                -fx-border-radius: 10px;
                 -fx-padding: 20px;
                 -fx-alignment: CENTER;
                 -fx-effect: dropshadow(gaussian, #888888, 5, 0.5, 2, 2);
                 -fx-cursor: hand;
                 -fx-transition: transform 0.2s ease-in-out;
+            """);
+
+            label.setStyle("""
+                -fx-font-weight: bold;
+                -fx-font-size: 18px;
             """);
 
             layout.getChildren().add(label);
