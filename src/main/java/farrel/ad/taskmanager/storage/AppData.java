@@ -1,4 +1,4 @@
-package farrel.ad.taskmanager;
+package farrel.ad.taskmanager.storage;
 
 import farrel.ad.taskmanager.models.Project;
 import farrel.ad.taskmanager.models.Task;
@@ -6,7 +6,7 @@ import farrel.ad.taskmanager.models.Task;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DataSeed {
+public class AppData {
     private static Map<String, Project> projectsData = new HashMap<>();
 
     static {
@@ -65,5 +65,29 @@ public class DataSeed {
 
     public static Map<String, Project> getProjectsData() {
         return projectsData;
+    }
+
+    public static void createNewProject() {
+
+    }
+
+    public static void updateProject() {
+
+    }
+
+    public static void deleteProject() {
+
+    }
+
+    public static void createNewTask() {
+
+    }
+
+    public static void updateTask() {
+
+    }
+
+    public static void deleteTask() {
+
     }
 }
