@@ -8,4 +8,6 @@ module farrel.ad.taskmanager {
     exports farrel.ad.taskmanager;
     exports farrel.ad.taskmanager.controllers;
     opens farrel.ad.taskmanager.controllers to javafx.fxml;
+    exports farrel.ad.taskmanager.storage;
+    opens farrel.ad.taskmanager.storage to javafx.fxml;
 }
