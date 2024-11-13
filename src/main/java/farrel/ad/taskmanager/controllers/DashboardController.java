@@ -1,17 +1,23 @@
 package farrel.ad.taskmanager.controllers;
 
+import farrel.ad.taskmanager.helper.SceneHelper;
 import farrel.ad.taskmanager.models.Project;
 import farrel.ad.taskmanager.storage.AppData;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Map;
+import java.util.Objects;
 
 public class DashboardController {
-    private Stage mainStage;
+    private static Stage mainStage;
 
     private static final int MAX_COLUMNS = 3;
 
@@ -23,8 +29,8 @@ public class DashboardController {
         updateProjectsList();
     }
 
-    public void setMainStage(Stage stage) {
-        this.mainStage = stage;
+    public static void setMainStage(Stage stage) {
+        mainStage = stage;
     }
 
     public void updateProjectsList() {
@@ -49,6 +55,7 @@ public class DashboardController {
             """);
 
             layout.getChildren().add(label);
+            layout.setOnMouseClicked(e -> showTasks());
 
             projectsGrid.add(layout, col, row);
 
@@ -58,5 +65,18 @@ public class DashboardController {
                 row++;
             }
         }
+    }
+
+    public void showTasks() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/views/KanbanTask.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Map<String, Double> sceneDimension = SceneHelper.getSceneDimension(0.8);
+        Scene scene = new Scene(root, sceneDimension.get("width"), sceneDimension.get("height"));
+        mainStage.setScene(scene);
     }
 }

@@ -19,8 +19,8 @@ import java.util.Objects;
 
 public class LoginController {
     private static final String CORRECT_PIN = "123123";
-    private Stage loginStage;
-    private Stage mainStage;
+    private static Stage loginStage;
+    private static Stage mainStage;
 
     @FXML
     private PasswordField pinField1, pinField2, pinField3, pinField4, pinField5, pinField6;
@@ -46,15 +46,15 @@ public class LoginController {
     }
 
     public void setLoginStage(Stage stage) {
-        this.loginStage = stage;
+        loginStage = stage;
     }
 
     private void setMainStage(Stage stage) {
-        this.mainStage = stage;
+        mainStage = stage;
     }
 
     public Stage getMainStage() {
-        return this.mainStage;
+        return mainStage;
     }
 
     private void handlePinFieldFocus(KeyEvent event, PasswordField[] pinFields, int index) {
@@ -89,6 +89,7 @@ public class LoginController {
 
             this.setMainStage(new Stage());
             SidebarController.setMainStage(this.getMainStage());
+            DashboardController.setMainStage(this.getMainStage());
 
             Map<String, Double> sceneDimension = SceneHelper.getSceneDimension(0.8);
             Scene scene = new Scene(dashboardRoot, sceneDimension.get("width"), sceneDimension.get("height"));

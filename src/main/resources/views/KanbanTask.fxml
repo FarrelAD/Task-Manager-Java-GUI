@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox spacing="20" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="farrel.ad.taskmanager.controllers.KanbanTaskController">
+
+    <fx:include source="../components/Sidebar.fxml" />
+
+    <!-- To-do column -->
+    <VBox fx:id="todoColumn" prefWidth="250" style="-fx-background-color: #BDC3C7; -fx-padding: 10px; -fx-border-radius: 5;">
+        <Label style="-fx-font-size: 18px;" text="To-Do">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+        <Button fx:id="taskButton1" prefWidth="230" style="-fx-background-color: #16A085; -fx-text-fill: white;" text="Task 1" />
+        <Button fx:id="taskButton2" prefWidth="230" style="-fx-background-color: #16A085; -fx-text-fill: white;" text="Task 2" />
+    </VBox>
+
+    <!-- In Progress column -->
+    <VBox fx:id="inProgressColumn" prefWidth="250" style="-fx-background-color: #BDC3C7; -fx-padding: 10px; -fx-border-radius: 5;">
+        <Label style="-fx-font-size: 18px;" text="In Progress" />
+        <Button fx:id="taskButton3" prefWidth="230" style="-fx-background-color: #16A085; -fx-text-fill: white;" text="Task 3" />
+    </VBox>
+
+    <!-- Done column -->
+    <VBox fx:id="doneColumn" prefWidth="250" style="-fx-background-color: #BDC3C7; -fx-padding: 10px; -fx-border-radius: 5;">
+        <Label style="-fx-font-size: 18px;" text="Done" />
+        <Button fx:id="taskButton4" prefWidth="230" style="-fx-background-color: #16A085; -fx-text-fill: white;" text="Task 4" />
+    </VBox>
+</HBox>
